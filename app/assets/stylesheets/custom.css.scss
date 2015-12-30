@@ -178,3 +178,15 @@ input {
   width: 75px;
   border-radius: 100%;
 }
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}

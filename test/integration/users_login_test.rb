@@ -50,7 +50,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test "login without remembering" do
     log_in_as(@user, remember_me: '0')
     # suppose to be assert_nil cookies['remember_token']
-    assert_not_nil cookies['remember_token']
+    assert_nil cookies['remember_token']
+    # This turned into an error because I didn't
+    # remove remember user (line 13) in sesssions_controller.rb
   end
 
 end

@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get 'users/edit/:id' => 'users#edit', as: :edit_user
   patch 'users/:id' => 'users#update'
 
+  delete 'users/:id' => 'users#destroy'
+
 
   # Sessions
   get 'login' => 'sessions#new'

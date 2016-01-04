@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   # Challenges
-  get 'challenges/index'
+  get 'challenges' => 'challenges#index'
 
   get 'challenges/new' => 'challenges#new', as: :new_challenge
   post 'challenges' => 'challenges#create'

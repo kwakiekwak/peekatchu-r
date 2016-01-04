@@ -1,6 +1,7 @@
 class ChallengesController < ApplicationController
+
   def index
-    @challenges = Challenge.all
+    @challenges = Challenge.paginate(page: params[:page])
   end
 
   def new
@@ -11,7 +12,7 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenge_params)
     if @challenge.save
       flash[:success] = "You have created a new Challenge"
-      redirect_to challenges_index_path
+      redirect_to challenges_path
     else
       render :new
     end

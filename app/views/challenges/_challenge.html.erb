@@ -1,0 +1,10 @@
+<li>
+<!-- image for the challenge -->
+  <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />
+  <%= link_to challenge.title, "#" %>
+  <!-- Only if the current user is an admin they can delete -->
+  <% if !current_user?(challenge.user) %>
+    | <%= link_to "delete", challenge.user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+</li>

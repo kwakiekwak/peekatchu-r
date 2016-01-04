@@ -5,9 +5,14 @@
   </small>
   <nav>
     <ul>
-      <li><%= link_to "About", about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-      <li><a href="http://news.railstutorial.org/">Challenges</a></li>
+      <% if logged_in? %>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Contact", contact_path %></li>
+        <li><%= link_to "Challenges", challenges_index_path %></li>
+      <% else %>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Contact", contact_path %></li>
+      <% end %>
     </ul>
   </nav>
 </footer>

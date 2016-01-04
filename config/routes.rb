@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get 'sessions/new'
 
   root 'main_pages#home'
@@ -31,6 +32,13 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
 
   delete 'logout' => 'sessions#destroy'
+
+  # Challenges
+  get 'challenges/index'
+
+  get 'challenges/new' => 'challenges#new', as: :new_challenge
+  post 'challenges' => 'challenges#create'
+
 
 
 end

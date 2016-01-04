@@ -1,0 +1,6 @@
+<h1>Challenges#index</h1>
+<p>Find me in app/views/challenges/index.html.erb</p>
+<% @challenges.each do |challenge| %>
+  <h3><%= challenge.title %></h3>
+  <p><%= challenge.description %></p>
+<% end %>

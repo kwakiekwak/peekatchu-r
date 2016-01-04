@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+    # assert is like return it returns a boolean
+    # assert_not works when you want it to be false but pass
 
   def setup
     @user = users(:michael)

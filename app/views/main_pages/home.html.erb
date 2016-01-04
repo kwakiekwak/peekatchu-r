@@ -4,8 +4,13 @@
   <h2>
     This is the home page for the
   </h2>
-
+  <!-- If logged in New Challenge, if not register -->
+  <% if logged_in? %>
+  <!-- add all the challenges and make it look more like the site -->
+  <%= link_to "Add a Challenge!", new_challenge_path, class: "btn btn-lg btn-primary" %>
+  <% else %>
   <%= link_to "Register!", signup_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>
 
 <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />

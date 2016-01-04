@@ -41,6 +41,9 @@ Rails.application.routes.draw do
 
   get 'challenges/:id' => 'challenges#show', as: :challenge
 
+  get 'challenges/edit/:id' => 'challenges#edit', as: :edit_challenge
+  patch 'challenges/:id' => 'challenges#update'
+
 
 
 end

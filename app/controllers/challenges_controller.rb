@@ -4,6 +4,10 @@ class ChallengesController < ApplicationController
     @challenges = Challenge.paginate(page: params[:page])
   end
 
+  def show
+    @challenge = Challenge.find(params[:id])
+  end
+
   def new
     @challenge = Challenge.new
   end
@@ -17,6 +21,7 @@ class ChallengesController < ApplicationController
       render :new
     end
   end
+
 
 private
   def challenge_params

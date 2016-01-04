@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   get 'challenges/new' => 'challenges#new', as: :new_challenge
   post 'challenges' => 'challenges#create'
 
+  get 'challenges/:id' => 'challenges#show', as: :challenge
+
 
 
 end

@@ -36,6 +36,15 @@ class ChallengesController < ApplicationController
     end
   end
 
+  def destroy
+    @challenge = Challenge.find(params[:id])
+    @challenge.destroy
+      flash[:succes] = "Challenge destroyed"
+      redirect_to new_challenge_path(@challenge)
+
+  end
+
+
 
 private
   def challenge_params

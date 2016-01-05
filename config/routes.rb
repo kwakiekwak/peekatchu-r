@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'sessions/new'
 
   root 'main_pages#home'
 
@@ -28,6 +27,8 @@ Rails.application.routes.draw do
 
 
   # Sessions
+  get 'sessions/new'
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
 
@@ -43,6 +44,8 @@ Rails.application.routes.draw do
 
   get 'challenges/edit/:id' => 'challenges#edit', as: :edit_challenge
   patch 'challenges/:id' => 'challenges#update'
+
+  delete 'challenges/:id' => 'challenges#destroy'
 
 
 

@@ -11,8 +11,10 @@
   <% end %>
 </div>
 
+  <%= challenge.category.name %>
   <%= link_to challenge.title, challenge %>
   <!-- Only if the current user is an admin they can delete -->
 
   | <%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %>
+
 </li>

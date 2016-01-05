@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'contact' => 'main_pages#contact'
 
+
   # Users
   get 'signup' => 'users#new'
 
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
 
   delete 'logout' => 'sessions#destroy'
+
 
   # Challenges
   get 'challenges' => 'challenges#index'

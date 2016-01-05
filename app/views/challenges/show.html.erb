@@ -1,4 +1,11 @@
+
+<%= image_tag @challenge.images %>
+<br>
+<br>
+<br>
+
 <%= @challenge.title %> <br>
-<%= @challenge.description %><br>
+<!-- make the description into a box -->
+<%= @challenge.description %><br><br>
 <!-- editing challenge should go here or at _challenge -->
 <button><%= link_to "Edit Challenge", edit_challenge_path %></button>

@@ -1,9 +1,18 @@
+
 <li>
-  <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />
-  <%= link_to user.name, user %>
-  <!-- Only if the current user is an admin they can delete -->
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-  <% end %>
+  <div class="show-page">
+    <% if user.images.nil? %>
+      <div id="proImage"><img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" /></div>
+
+    <% else %>
+      <div id="proImage"><%= image_tag user.images, id:"profile_pic" %></div>
+
+    <% end %>
+    <%= link_to user.name, user %>
+    <!-- Only if the current user is an admin they can delete -->
+    <% if current_user.admin? || current_user?(user) %>
+      | <%= link_to "delete", user, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+    <% end %>
+  </div>
 </li>

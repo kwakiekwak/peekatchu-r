@@ -4,7 +4,12 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.search(params[:search]).paginate(per_page: 10, page: params[:page])
+    # if params[:search]
+    #   @u = User.search(params[:search]).order("created_at DESC")
+    # else
+    #   @u = User.order("created_at DESC")
+    # end
   end
 
   def show
@@ -46,6 +51,8 @@ class UsersController < ApplicationController
     flash[:success] = "User Deleted"
     redirect_to users_url
   end
+
+
 
   private
 

@@ -4,7 +4,10 @@ module SessionsHelper
     # We can treat session as if it were a hash
     # So we assign in (below)
     session[:user_id] = user.id
+    # tried to get session[:challenge_id] to populate into posts
+    # session[:challenge_id] = challenge.id
   end
+
 
   # Remembers a user in a persistent session.
   def remember(user)

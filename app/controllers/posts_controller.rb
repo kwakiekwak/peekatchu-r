@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = session[:user_id]
-    @post.challenge_id = session[:challenge_id]
+    # @post.challenge_id = @post.challenge
     if @post.save
       flash[:success] = "Post was created"
       redirect_to posts_path

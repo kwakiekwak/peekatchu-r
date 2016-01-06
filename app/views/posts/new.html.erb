@@ -1,0 +1,15 @@
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@post) do |f| %>
+
+      <%= f.label :comments %>
+      <%= f.text_field :comments, class: 'form-control' %>
+
+      <%= f.label :images %>
+      <%= f.text_field :images, class: 'form-control' %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

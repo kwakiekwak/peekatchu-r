@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   namespace :api do
     resources :challenges, only: [:index, :show]
   end
@@ -51,6 +52,20 @@ Rails.application.routes.draw do
     patch 'challenges/:id' => 'challenges#update'
 
     delete 'challenges/:id' => 'challenges#destroy'
+
+    # Posts
+    get 'posts' => 'posts#index'
+
+    get 'posts/new' => 'posts#new', as: :new_post
+    post 'posts' => 'posts#create'
+
+    get 'posts/edit/:id' => 'posts#edit', as: :edit_post
+    patch 'posts/:id' => 'posts#update'
+
+    get 'posts/:id' => 'posts#show', as: :post
+
+
+    delete 'posts/:id' => 'posts#destroy'
 
 
 

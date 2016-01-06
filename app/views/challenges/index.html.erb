@@ -21,23 +21,12 @@
 
     <% @challenges.each do |challenge| %>
     <!-- understand why this fixed the bug -->
-      <% if challenge.category.name == "All" %>
-        <% if challenge.images.nil? %>
-          <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />
-          <br>
-          <br>
-        <% else %>
-          <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
-          <br>
-        <% end %>
-        <ul>
-          <li><%= link_to challenge.title, challenge %></li>
-          <li><%= challenge.category.name %></li>
-          <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
-        </ul>
-      <% end %>
-
-
+      <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
+      <ul>
+        <li><%= link_to challenge.title, challenge %></li>
+        <li><%= challenge.category.name %></li>
+        <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
+      </ul>
     <% end %>
   </div>
 
@@ -121,6 +110,9 @@
     <% end %>
     </div>
 </div>
+
+
+
 
 
 

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :challenges
+  has_many :posts
 
   attr_accessor :remember_token
   before_save { email.downcase! }

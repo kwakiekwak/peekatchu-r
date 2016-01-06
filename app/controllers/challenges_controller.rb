@@ -16,6 +16,7 @@ class ChallengesController < ApplicationController
 
   def create
     @challenge = Challenge.new(challenge_params)
+    @challenge.user_id = session[:user_id]
     if @challenge.save
       flash[:success] = "You have created a new Challenge"
       redirect_to challenges_path

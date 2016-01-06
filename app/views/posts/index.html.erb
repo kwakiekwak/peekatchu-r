@@ -1,0 +1,5 @@
+<% @posts.each do |post| %>
+  <%= image_tag post.images %><br>
+  <%= post.comments %>
+  <%= link_to "Delete", post, method: "delete" %>
+<% end %>

@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Post.create(
+  images: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNOpLpzFPihgm51fxsWw489v4bMkz8rjqEmKcge1OoWm47aSQ_Mg",
+  comments: "I am a comment")
+
 Category.create(name: "Sports")
 Category.create(name: "Entertainment")
 Category.create(name: "Food")

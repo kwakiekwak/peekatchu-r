@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'faker'
 gem 'bootstrap-sass'
 gem 'puma'
+# Get Heroku to work
+gem 'rails_12factor', group: :production
 # Gem that creates a display all the entries in a collection that
 # allows you to browse Prev..2..Next
 gem 'will_paginate',           '3.0.7'

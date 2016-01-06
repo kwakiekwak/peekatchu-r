@@ -11,7 +11,7 @@ Category.create(name: "Entertainment")
 Category.create(name: "Food")
 Category.create(name: "Other")
 
-5.times do |n|
+5.times do
   Challenge.create(
     images: "asdf",
     title: "hello",
@@ -19,11 +19,11 @@ Category.create(name: "Other")
     description: "how is it going")
 end
 
-# User.create!(name:  "Peyton Manning",
-#              email: "goat@utk.edu",
-#              password:              "manning",
-#              password_confirmation: "manning",
-#              admin: true)
+User.create!(name:  "Peyton Manning",
+             email: "goat@utk.edu",
+             password:              "manning",
+             password_confirmation: "manning",
+             admin: true)
 
 100.times do |n|
   name = Faker::Name.name

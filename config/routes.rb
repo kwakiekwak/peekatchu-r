@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  post '/rate' => 'rater#create', :as => 'rate'
   namespace :api do
     resources :challenges, only: [:index, :show]
   end
@@ -57,17 +58,23 @@ Rails.application.routes.draw do
     get 'index/sort2' => 'challenges#sort', as: :challenges_sort
 
     # Posts
-    get 'posts' => 'posts#index'
+    # get 'posts' => 'posts#index'
 
-    get 'challenges/:id/posts/new' => 'posts#new', as: :new_post
+    # get 'challenges/:id/posts/new' => 'posts#new', as: :new_post
+    # post 'posts' => 'posts#create'
+
+    # get 'posts/edit/:id' => 'posts#edit', as: :edit_post
+    # patch 'posts/:id' => 'posts#update'
+
+    # get 'posts/:id' => 'posts#show', as: :post
+
+    # delete 'posts/:id' => 'posts#destroy'
+
+    get 'posts' => 'posts#index', as: :posts
+
     post 'posts' => 'posts#create'
 
-    get 'posts/edit/:id' => 'posts#edit', as: :edit_post
-    patch 'posts/:id' => 'posts#update'
-
-    get 'posts/:id' => 'posts#show', as: :post
-
-    delete 'posts/:id' => 'posts#destroy'
+    delete 'posts/:id' => 'posts#destroy', as: :post_challenge
 
 
 

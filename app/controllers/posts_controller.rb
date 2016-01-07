@@ -19,10 +19,10 @@ class PostsController < ApplicationController
     # @post.challenge_id = @post.challenge
     if @post.save
       flash[:success] = "Post was created"
-      redirect_to posts_path
+      redirect_to(@post.challenge)
     else
       flash[:danger] = "Post could NOT be created"
-      render :new
+      redirect_to(@post.challenge)
     end
   end
 
@@ -42,9 +42,13 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-    flash[:success] = "Lead it to posts instaed of new_post"
-    redirect_to posts_path
+    if @post.destroy
+      flash[:success] = "Lead it to posts instaed of new_post"
+      redirect_to challenge_path(@post.challenge_id)
+    else
+      flash[:danger] = "You cannot delete this post"
+      redirect_to challenge_path(@post.challenge_id)
+    end
   end
 
   private
@@ -52,3 +56,4 @@ class PostsController < ApplicationController
     params.require(:post).permit(:comments, :images, :challenge_id)
   end
 end
+

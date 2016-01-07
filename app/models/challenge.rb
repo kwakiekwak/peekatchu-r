@@ -5,5 +5,7 @@ class Challenge < ActiveRecord::Base
   belongs_to :category
   has_many :posts
 
+  ratyrate_rateable 'challenge_rating'
+
   validates :title,  presence: true, length: { maximum: 50 }
 end

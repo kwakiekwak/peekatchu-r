@@ -9,7 +9,41 @@
 <!-- make the description into a box -->
 <%= @challenge.description %><br><br>
 <!-- editing challenge should go here or at _challenge -->
-<button><%= link_to "Edit Challenge", edit_challenge_path %></button>
+<button><%= link_to "Edit Challenge", edit_challenge_path %></button><br>
+<br>
+<br>
 
-<button><%= link_to "Comment", new_post_path(@challenge.id) %></button>
+<div class="row">
+  <div class="small-2 large-2 columns">
+    <%= imdb_style_rating_for @challenge, current_user%>
+  </div>
+  <br>
+  <div class="small-2 large-4 columns">
+    <% if current_user %>
+      Challenge Rating: <%= rating_for @challenge, "challenge_rating", disable_after_rate: false, imdb_avg: false %>
+      <br>
+    <% end %>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+<%= form_for @post do |f| %>
+<div>
+<%= f.label :comments %>
+<%= f.text_area :comments %>
+</div>
+<div>
+<%= f.hidden_field :challenge_id, :value => @challenge.id %>
+</div>
+<div>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+</div>
+<%= f.submit %>
+<% end %>
+
+<div class="comment1">
+<%= render :partial => 'post', :collection => @challenge.posts %>
+</div>
 

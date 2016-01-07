@@ -23,6 +23,7 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
+    @post = Post.new(:challenge => @challenge)
 
   end
 
@@ -80,6 +81,6 @@ class ChallengesController < ApplicationController
 
 private
   def challenge_params
-    params.require(:challenge).permit(:images, :title, :description, :category_id)
+    params.require(:challenge).permit(:images, :title, :description, :user_id, :category_id)
   end
 end

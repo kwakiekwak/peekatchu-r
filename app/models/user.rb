@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   # changed from has_many
-  has_and_belongs_to_many :challenges
-  has_many :posts
+  has_many :users_challenges
+  has_many :challenges, through: :users_challenges
+  has_many :posts, dependent: :destroy
 
   attr_accessor :remember_token
   before_save { email.downcase! }

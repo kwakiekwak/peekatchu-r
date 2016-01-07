@@ -25,8 +25,9 @@
     <% @challenges.each do |challenge| %>
       <tr>
         <td>
-          <%= link_to '<button class="btn btn-primary">&nbsp;</button>'.html_safe, challenge_path(challenge) %>
-          <span class="name">&nbsp;&nbsp;<%= image_tag challenge.images %></span>
+        <%= link_to challenge_path(challenge) do %>
+           <%= image_tag challenge.images, width: 75, height: 75 %>
+        <% end %>
         </td>
         <td><%= challenge.title %></td>
         <td><%= challenge.category.name %></td>

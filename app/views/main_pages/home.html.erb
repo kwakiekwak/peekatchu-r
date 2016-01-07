@@ -27,13 +27,14 @@
         <% @challenges.each do |challenge| %>
           <!-- understand why this fixed the bug -->
           <% if challenge.category.name == "" %>
-            <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
+            <div class="challengeImage"><%= image_tag challenge.images, width: 75, height: 75, class: "pic" %></div>
             <ul>
               <li><%= link_to challenge.title, challenge %></li>
               <li><%= challenge.category.name %></li>
               <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
             </ul>
           <% end %>
+
         <% end %>
 
       </div>
@@ -132,6 +133,11 @@
   <%= link_to "Add a Challenge!", new_challenge_path, class: "btn btn-lg btn-primary" %>
 
   <% else %>
+  <h1>Let Me Peekatchu-r Challenge</h1>
+
+  <h2>
+    This is the home page for the
+  </h2>
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
     Log In

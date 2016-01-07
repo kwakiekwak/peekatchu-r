@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update, :destroy]
-  before_action :admin_user,     only: :destroy
+  # before_action :admin_user,     only: :destroy
 
   @@descending = false
 
@@ -13,6 +13,8 @@ class UsersController < ApplicationController
       user_list.each do |user|
         if user.name.downcase.include? params[:query].downcase
           @users << user
+        else
+          flash[:danger] = "No Match"
         end
       end
       return @users
@@ -67,7 +69,6 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User Deleted"
     redirect_to users_url
-
   end
 
   def sort

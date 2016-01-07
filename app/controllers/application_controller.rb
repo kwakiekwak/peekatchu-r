@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   # allow sessions to be involved across multiple controllers
   # and views.
   include SessionsHelper
+  # include ChallengesController
 end

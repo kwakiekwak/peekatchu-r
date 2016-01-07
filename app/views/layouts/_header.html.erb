@@ -5,9 +5,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to "Users", users_path %></li>
         <!-- Ruby code to see if user is logged in then the lists below show in a dropdown form-->
         <% if logged_in? && current_user.admin?%>
           <li><%= link_to "Users", users_path %></li>
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>

@@ -1,8 +1,23 @@
 class ChallengesController < ApplicationController
 
+  @@descending = false
+
   def index
     # @challenges = Challenge.paginate(page: params[:page])
-    @challenges = Challenge.all
+    # @challenges = Challenge.all
+    if params[:query]
+      # search_by = params[:search].to_sym
+      challenge_list = Challenge.all
+      @challenges = []
+      challenge_list.each do |challenge|
+        if challenge[:title].downcase.include? params[:query].downcase
+          @challenges << challenge
+        end
+      end
+      return @challenges
+    end
+    @paginate = true
+    @challenges = Challenge.page(params[:page]).per(5)
 
   end
 
@@ -18,6 +33,7 @@ class ChallengesController < ApplicationController
 
   def create
     @challenge = Challenge.new(challenge_params)
+    # this sets user_id into challenge (might not need it)
     @challenge.user_id = session[:user_id]
     # @post = @challenge.posts.build(params[:post])
     if @challenge.save
@@ -48,6 +64,16 @@ class ChallengesController < ApplicationController
       flash[:succes] = "Challenge destroyed"
       redirect_to new_challenge_path(@challenge)
 
+  end
+
+  def sort
+    if @@descending
+      @challenges = Challenge.page(params[:page]).per(5).order(params[:id] + " desc")
+    else
+      @challenges = Challenge.page(params[:page]).per(5).order(params[:id])
+    end
+      @@descending = !@@descending
+    render :index
   end
 
 

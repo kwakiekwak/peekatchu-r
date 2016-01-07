@@ -9,6 +9,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @id = params[:id]
+    puts params[:id]
   end
 
   def create
@@ -47,6 +49,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:comments, :images)
+    params.require(:post).permit(:comments, :images, :challenge_id)
   end
 end

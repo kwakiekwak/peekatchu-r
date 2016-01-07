@@ -28,8 +28,9 @@ Rails.application.routes.draw do
     get 'users/edit/:id' => 'users#edit', as: :edit_user
     patch 'users/:id' => 'users#update'
 
-    delete 'users/:id' => 'users#destroy'
+    delete 'users/:id' => 'users#destroy', as: :destroy_user
 
+    get 'index/sort' => 'users#sort', as: :users_sort
 
     # Sessions
     get 'sessions/new'
@@ -53,17 +54,18 @@ Rails.application.routes.draw do
 
     delete 'challenges/:id' => 'challenges#destroy'
 
+    get 'index/sort2' => 'challenges#sort', as: :challenges_sort
+
     # Posts
     get 'posts' => 'posts#index'
 
-    get 'posts/new' => 'posts#new', as: :new_post
+    get 'challenges/:id/posts/new' => 'posts#new', as: :new_post
     post 'posts' => 'posts#create'
 
     get 'posts/edit/:id' => 'posts#edit', as: :edit_post
     patch 'posts/:id' => 'posts#update'
 
     get 'posts/:id' => 'posts#show', as: :post
-
 
     delete 'posts/:id' => 'posts#destroy'
 

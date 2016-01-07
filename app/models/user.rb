@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :challenges
+  # changed from has_many
+  has_and_belongs_to_many :challenges
   has_many :posts
 
   attr_accessor :remember_token
@@ -42,11 +43,11 @@ class User < ActiveRecord::Base
   end
 
   # It returns the articles whose titles contain one or more words that form the query
-  def self.search(search)
-    if search
-      where('name LIKE ?', "%#{search}%")
-    else
-      all
-    end
-  end
+  # def self.search(search)
+  #   if search
+  #     where('name LIKE ?', "%#{search}%")
+  #   else
+  #     all
+  #   end
+  # end
 end

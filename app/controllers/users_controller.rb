@@ -3,8 +3,24 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update, :destroy]
   before_action :admin_user,     only: :destroy
 
+  @@descending = false
+
   def index
-    @users = User.search(params[:search]).paginate(per_page: 10, page: params[:page])
+    if params[:query]
+      # search_by = params[:search].to_sym
+      user_list = User.all
+      @users = []
+      user_list.each do |user|
+        if user.name.downcase.include? params[:query].downcase
+          @users << user
+        end
+      end
+      return @users
+    end
+    @paginate = true
+    @users = User.page(params[:page]).per(5)
+
+    # @users = User.search(params[:search]).paginate(per_page: 10, page: params[:page])
     # if params[:search]
     #   @u = User.search(params[:search]).order("created_at DESC")
     # else
@@ -47,11 +63,24 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
     User.find(params[:id]).destroy
     flash[:success] = "User Deleted"
     redirect_to users_url
+
   end
 
+  def sort
+    if @@descending
+      @paginate = true
+      @users = User.page(params[:page]).per(5).order(params[:id] + " desc")
+    else
+      @paginate = true
+      @users = User.page(params[:page]).per(5).order(params[:id])
+    end
+      @@descending = !@@descending
+    render :index
+  end
 
 
   private

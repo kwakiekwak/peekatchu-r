@@ -1,5 +1,6 @@
 class Challenge < ActiveRecord::Base
-  belongs_to :user
+  # changed it from belongs_to
+  has_and_belongs_to_many :user
   belongs_to :category
   has_many :posts
 

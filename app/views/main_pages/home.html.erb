@@ -1,13 +1,136 @@
 <div class="center jumbotron">
-  <h1>Let Me Peekatchu-r Challenge</h1>
 
-  <h2>
-    This is the home page for the
-  </h2>
   <!-- If logged in New Challenge, if not register -->
   <% if logged_in? %>
+
+    <% provide(:title, 'All challenges') %>
+    <h1>All Challenges</h1>
+
+    <%# will_paginate %>
+    <!-- this creates a tab form -->
+    <div class="container">
+      <h3>Challenges</h3>
+      <ul class="nav nav-tabs">
+        <li><a href="#tab1" data-toggle="tab">All</a></li>
+        <li><a href="#tab2" data-toggle="tab">Food</a></li>
+        <li><a href="#tab3" data-toggle="tab">Sports</a></li>
+        <li><a href="#tab4" data-toggle="tab">Other</a></li>
+        <li><a href="#tab5" data-toggle="tab">Entertainment</a></li>
+      </ul>
+    </div>
+
+
+    <div class="tab-content">
+
+      <div class="tab-pane active" id="tab1">
+
+        <% @challenges.each do |challenge| %>
+          <!-- understand why this fixed the bug -->
+          <% if challenge.category.name == "" %>
+            <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
+            <ul>
+              <li><%= link_to challenge.title, challenge %></li>
+              <li><%= challenge.category.name %></li>
+              <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
+            </ul>
+          <% end %>
+        <% end %>
+
+      </div>
+
+        <div class="tab-pane active" id="tab2">
+        <% @challenges.each do |challenge| %>
+          <% if challenge.category.name == "Food" %>
+            <% if challenge.images.nil? %>
+              <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />
+              <br>
+              <br>
+            <% else %>
+              <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
+              <br>
+            <% end %>
+            <ul>
+              <li><%= link_to challenge.title, challenge %></li>
+              <li><%= challenge.category.name %></li>
+              <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
+            </ul>
+          <% end %>
+        <% end %>
+        </div>
+
+        <div class="tab-pane active" id="tab3">
+        <% @challenges.each do |challenge| %>
+          <% if challenge.category.name == "Sports" %>
+            <% if challenge.images.nil? %>
+              <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />
+              <br>
+              <br>
+            <% else %>
+              <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
+              <br>
+            <% end %>
+            <ul>
+              <li><%= link_to challenge.title, challenge %></li>
+              <li><%= challenge.category.name %></li>
+              <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
+            </ul>
+          <% end %>
+        <% end %>
+        </div>
+
+        <div class="tab-pane active" id="tab4">
+        <% @challenges.each do |challenge| %>
+          <% if challenge.category.name == "Other" %>
+            <% if challenge.images.nil? %>
+              <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />
+              <br>
+              <br>
+            <% else %>
+              <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
+              <br>
+            <% end %>
+            <ul>
+              <li><%= link_to challenge.title, challenge %></li>
+              <li><%= challenge.category.name %></li>
+              <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
+            </ul>
+          <% end %>
+        <% end %>
+        </div>
+
+        <div class="tab-pane active" id="tab5">
+        <% @challenges.each do |challenge| %>
+          <% if challenge.category.name == "Entertainment" %>
+            <% if challenge.images.nil? %>
+              <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />
+              <br>
+              <br>
+            <% else %>
+              <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
+              <br>
+            <% end %>
+            <ul>
+              <li><%= link_to challenge.title, challenge %></li>
+              <li><%= challenge.category.name %></li>
+              <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
+            </ul>
+          <% end %>
+        <% end %>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+
+
+
+
+
+
   <!-- add all the challenges and make it look more like the site -->
   <%= link_to "Add a Challenge!", new_challenge_path, class: "btn btn-lg btn-primary" %>
+
   <% else %>
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">

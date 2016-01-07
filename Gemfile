@@ -7,8 +7,10 @@ gem 'puma'
 gem 'rails_12factor', group: :production
 # Gem that creates a display all the entries in a collection that
 # allows you to browse Prev..2..Next
-gem 'will_paginate',           '3.0.7'
+# gem 'will_paginate',           '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
+# type of paginate
+gem 'kaminari'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -48,6 +50,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'awesome_print'
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

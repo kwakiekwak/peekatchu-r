@@ -1,118 +1,42 @@
-<% provide(:title, 'All challenges') %>
-<h1>All Challenges</h1>
-
-<%# will_paginate %>
-<!-- this creates a tab form -->
 <div class="container">
-  <h3>Challenges</h3>
-  <ul class="nav nav-tabs">
-    <li><a href="#tab1" data-toggle="tab">All</a></li>
-    <li><a href="#tab2" data-toggle="tab">Food</a></li>
-    <li><a href="#tab3" data-toggle="tab">Sports</a></li>
-    <li><a href="#tab4" data-toggle="tab">Other</a></li>
-    <li><a href="#tab5" data-toggle="tab">Entertainment</a></li>
-  </ul>
+
+  <br>
+
+  <%= form_tag('/challenges', method:"get") do %>
+
+
+    <%= text_field_tag :query %>
+    <%= submit_tag "Search", "class" => "btn btn-primary"%>
+  <% end %>
+
+  <% if @paginate %>
+    <%= paginate @challenges %>
+  <% end %>
+
+
+  <h3>Challenge Data</h3>
+  <table class="table table-striped">
+    <tr>
+      <th><%= link_to "Images", challenges_sort_path(id: "images")%></th>
+      <th><%= link_to "Title", challenges_sort_path(id: "title")%></th>
+      <th><%= link_to "Category", challenges_sort_path(id: "category_id")%></th>
+      <th><%= link_to "Description", challenges_sort_path(id: "description")%></th>
+    </tr>
+    <% @challenges.each do |challenge| %>
+      <tr>
+        <td>
+          <%= link_to '<button class="btn btn-primary">&nbsp;</button>'.html_safe, challenge_path(challenge) %>
+          <span class="name">&nbsp;&nbsp;<%= image_tag challenge.images %></span>
+        </td>
+        <td><%= challenge.title %></td>
+        <td><%= challenge.category.name %></td>
+        <td><%= challenge.description %></td>
+      </tr>
+    <% end %>
+
+
+  </table>
 </div>
-
-
-<div class="tab-content">
-
-  <div class="tab-pane active" id="tab1">
-
-    <% @challenges.each do |challenge| %>
-    <!-- understand why this fixed the bug -->
-      <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
-      <ul>
-        <li><%= link_to challenge.title, challenge %></li>
-        <li><%= challenge.category.name %></li>
-        <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
-      </ul>
-    <% end %>
-  </div>
-
-    <div class="tab-pane active" id="tab2">
-    <% @challenges.each do |challenge| %>
-      <% if challenge.category.name == "Food" %>
-        <% if challenge.images.nil? %>
-          <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />
-          <br>
-          <br>
-        <% else %>
-          <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
-          <br>
-        <% end %>
-        <ul>
-          <li><%= link_to challenge.title, challenge %></li>
-          <li><%= challenge.category.name %></li>
-          <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
-        </ul>
-      <% end %>
-    <% end %>
-    </div>
-
-    <div class="tab-pane active" id="tab3">
-    <% @challenges.each do |challenge| %>
-      <% if challenge.category.name == "Sports" %>
-        <% if challenge.images.nil? %>
-          <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />
-          <br>
-          <br>
-        <% else %>
-          <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
-          <br>
-        <% end %>
-        <ul>
-          <li><%= link_to challenge.title, challenge %></li>
-          <li><%= challenge.category.name %></li>
-          <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
-        </ul>
-      <% end %>
-    <% end %>
-    </div>
-
-    <div class="tab-pane active" id="tab4">
-    <% @challenges.each do |challenge| %>
-      <% if challenge.category.name == "Other" %>
-        <% if challenge.images.nil? %>
-          <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />
-          <br>
-          <br>
-        <% else %>
-          <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
-          <br>
-        <% end %>
-        <ul>
-          <li><%= link_to challenge.title, challenge %></li>
-          <li><%= challenge.category.name %></li>
-          <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
-        </ul>
-      <% end %>
-    <% end %>
-    </div>
-
-    <div class="tab-pane active" id="tab5">
-    <% @challenges.each do |challenge| %>
-      <% if challenge.category.name == "Entertainment" %>
-        <% if challenge.images.nil? %>
-          <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />
-          <br>
-          <br>
-        <% else %>
-          <div class="challengeImage"><%= image_tag challenge.images, class: "pic" %></div>
-          <br>
-        <% end %>
-        <ul>
-          <li><%= link_to challenge.title, challenge %></li>
-          <li><%= challenge.category.name %></li>
-          <li><%= link_to "Delete", "challenges/" + challenge.id.to_s, method: "delete" %></li>
-        </ul>
-      <% end %>
-    <% end %>
-    </div>
-</div>
-
-
-
 
 
 

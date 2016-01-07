@@ -2,17 +2,17 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-    <!-- image goes here -->
+    <!-- the div class below doesn't matter -->
         <% if @user.images.nil? %>
-          <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" />
+          <div class=".col-md-4"><img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" /></div>
           <%= @user.name %>
         <% else %>
-          <div id="proImage"><%= image_tag @user.images, id:"profile_pic" %></div><br>
-          <%= @user.name %>
+          <div id="proImage" class=".col-md-4">><%= image_tag @user.images, id:"profile_pic" %></div><br>
         <% end %>
       </h1>
       <br>
-      <%= @user.email %>
+      <div class=".col-md-4"><%= @user.name %></div>
+      <div class=".col-md-4"><%= @user.email %></div>
 
 
       <div><%= link_to "delete", @user, method: :delete,

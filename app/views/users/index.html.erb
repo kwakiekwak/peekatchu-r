@@ -1,17 +1,45 @@
-<% provide(:title, 'All users') %>
-<h1>All users</h1>
 
-<%= form_tag users_path, :method => 'get', :id => "users_search" do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
 
-<%= will_paginate %>
+<div class="container">
+  <br>
 
-<ul class="users">
-    <%= render @users %>
-</ul>
+  <%= form_tag(users_path, method:"get") do %>
+    <%= text_field_tag :query %>
+    <%= submit_tag "Search", "class" => "btn btn-primary"%>
+  <% end %>
 
-<%= will_paginate %>
+
+    <%# will_paginate %>
+  <% if @paginate %>
+    <%= paginate @users %>
+  <% end %>
+
+
+  <h3>User Data</h3>
+  <table class="table table-striped">
+    <tr>
+      <th><%= link_to "User", users_sort_path(id: "name")%></th>
+      <th><%= link_to "Name", users_sort_path(id: "name")%></th>
+      <th><%= link_to "Email", users_sort_path(id: "email")%></th>
+      <!-- eventually have the raitings -->
+      <th><%= link_to "Delete" %></th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <%= link_to '<button class="btn btn-primary">&nbsp;</button>'.html_safe, user_path(user) %>
+          <span class="name">&nbsp;&nbsp;<%= user.name %></span>
+        </td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <% if current_user == user %>
+          <td><%= link_to "delete", user, method: :delete,
+                                    data: { confirm: "You sure?" } %></td>
+        <% else %>
+            <td></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>
+

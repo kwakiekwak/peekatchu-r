@@ -6,21 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Post.create(
-  images: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNOpLpzFPihgm51fxsWw489v4bMkz8rjqEmKcge1OoWm47aSQ_Mg",
-  comments: "I am a comment")
+10.times do
+  Post.create(
+  images: Faker::Avatar.image,
+  comments: Faker::Lorem.sentence)
+end
 
 Category.create(name: "Sports")
 Category.create(name: "Entertainment")
 Category.create(name: "Food")
 Category.create(name: "Other")
 
-5.times do
+10.times do
   Challenge.create(
-    images: "asdf",
-    title: "hello",
+    images: Faker::Avatar.image,
+    title: Faker::Lorem.words,
     category_id: Faker::Number.between(1, 4),
-    description: "how is it going")
+    description: Faker::Lorem.sentence)
 end
 
 User.create!(name:  "Peyton Manning",

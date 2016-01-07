@@ -1,18 +1,20 @@
 
 <li>
+<div class="container">
   <div class="show-page">
     <% if user.images.nil? %>
-      <div id="proImage"><img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" /></div>
+      <div id="proImage" class="col-md-4"><img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" /></div>
 
     <% else %>
-      <div id="proImage"><%= image_tag user.images, id:"profile_pic" %></div>
+      <div id="proImage" class="col-md-4"><%= image_tag user.images, id:"profile_pic" %></div>
 
     <% end %>
-    <%= link_to user.name, user %>
+    <div class="col-md-4" id="username"><%= link_to user.name, user %></div>
     <!-- Only if the current user is an admin they can delete -->
     <% if current_user.admin? || current_user?(user) %>
-      | <%= link_to "delete", user, method: :delete,
-                                    data: { confirm: "You sure?" } %>
+    <div class="col-md-4" id="user_delete"><%= link_to "delete", user, method: :delete,
+                                    data: { confirm: "You sure?" } %></div>
     <% end %>
   </div>
+</div>
 </li>

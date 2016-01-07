@@ -138,7 +138,7 @@ aside {
 
 #main {
   background-color: #93B1C6;
-  opacity: .8
+  // opacity: .8
 }
 
 #header {
@@ -148,7 +148,7 @@ aside {
 }
 
 body {
-  background-image: image-url('challenge.png');
+  // background-image: image-url('bodypic.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -294,6 +294,11 @@ input {
 .pic {
   height: 100%;
   width: 100%;
+}
+
+.modal-backdrop {
+  position: fixed;
+  z-index: 1041;
 }
 
 

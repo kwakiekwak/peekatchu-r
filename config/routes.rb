@@ -57,6 +57,8 @@ Rails.application.routes.draw do
 
     get 'index/sort2' => 'challenges#sort', as: :challenges_sort
 
+    # get 'index/sort3' => 'challenges#sort', as: :challenges_sort2
+
     # Posts
     # get 'posts' => 'posts#index'
 

@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
 
 
-  post '/rate' => 'rater#create', :as => 'rate'
   namespace :api do
     resources :challenges, only: [:index, :show]
   end
@@ -22,7 +21,7 @@ Rails.application.routes.draw do
     get 'users' => 'users#index'
 
     get 'users/new' => 'users#new', as: :new_user
-    post 'users/' => 'users#create'
+    post 'users' => 'users#create', as: :create_user
 
     get 'users/:id' => 'users#show', as: :user
 
@@ -57,6 +56,7 @@ Rails.application.routes.draw do
 
     get 'index/sort2' => 'challenges#sort', as: :challenges_sort
 
+    post '/rate' => 'rater#create', :as => 'rate'
     # get 'index/sort3' => 'challenges#sort', as: :challenges_sort2
 
     # Posts

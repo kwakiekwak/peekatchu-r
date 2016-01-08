@@ -1,28 +1,41 @@
-== README
+# *README*
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Peekatchu-r-Challenge
+Peekatchu-r-Challenge started with the thought of friends challenging others in various challenges. (Challenges like the saltine crackers) There were many things I wanted to implement that I weren't able to get to such as 
 
-Things you may want to cover:
+* Challenging Other Users
+* Posting Videos
+* Posting Photos
+* Getting my home page sorts to work
+* Points for Accomplishing challenges
+* Users/Challenges Accepted and Challenges Accomplish
+* Tells an user if they passed the challenge
+* More commenting 
 
-* Ruby version
+#### WireFrames
+* Did them on paper
 
-* System dependencies
+## Models
+1. User
+2. Challenge
+3. Post
+4. Category
+5. Users_Challenges
+6. Any Models with Ratyrate Gem
 
-* Configuration
+####Users_Challenges
+* This was a joint table for User and Challenge model with foreign keys of user_id and challenge_id.
 
-* Database creation
+## Programs Used
+* HTML/CSS
+* Ruby
+* Rails
 
-* Database initialization
+## Gems Used
+* Faker
+* Bootstrap-Sass
+* Puma
+* Pry
+* Kaminari
+* Ratyrate
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

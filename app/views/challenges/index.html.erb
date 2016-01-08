@@ -1,42 +1,52 @@
-<div class="container">
+<div class="jumbotron" style="background-color: #93B1C6">
+  <div class="container">
 
-  <br>
-
-  <%= form_tag('/challenges', method:"get") do %>
-
-
-  <%= text_field_tag :query %>
-    <%= submit_tag "Search", "class" => "btn btn-primary"%>
-  <% end %>
-
-  <% if @paginate %>
-    <%= paginate @challenges %>
-  <% end %>
+    <br>
 
 
-  <h3>Challenge Data</h3>
-  <table class="table table-striped">
-    <tr>
-      <th><%= link_to "Images", challenges_sort_path(id: "images")%></th>
-      <th><%= link_to "Title", challenges_sort_path(id: "title")%></th>
-      <th><%= link_to "Category", challenges_sort_path(id: "category_id")%></th>
-      <th><%= link_to "Description", challenges_sort_path(id: "description")%></th>
-    </tr>
-    <% @challenges.each do |challenge| %>
-      <tr>
-        <td>
-        <%= link_to challenge_path(challenge) do %>
-           <%= image_tag challenge.images, width: 75, height: 75 %>
-        <% end %>
-        </td>
-        <td><%= challenge.title %></td>
-        <td><%= challenge.category.name %></td>
-        <td><%= challenge.description %></td>
-      </tr>
+    <div class="search-index">
+    <%= form_tag('/challenges', method:"get") do %>
+
+
+    <%= text_field_tag :query %>
+      <%= submit_tag "Search Challenges", "class" => "btn btn-primary"%>
     <% end %>
+    </div>
+    <br>
+    <br>
 
 
-  </table>
+    <h3>Challenge Data</h3>
+    <br>
+
+    <table class="table table-striped">
+      <tr>
+        <th class="align"><%= link_to "Images", challenges_sort_path(id: "images")%></th>
+        <th class="align"><%= link_to "Title", challenges_sort_path(id: "title")%></th>
+        <th class="align"><%= link_to "Category", challenges_sort_path(id: "category_id")%></th>
+        <th class="align"><%= link_to "Description", challenges_sort_path(id: "description")%></th>
+      </tr>
+      <% @challenges.each do |challenge| %>
+        <tr>
+          <td>
+          <%= link_to challenge_path(challenge) do %>
+             <%= image_tag challenge.images, width: 75, height: 75 %>
+          <% end %>
+          </td>
+          <td><%= challenge.title %></td>
+          <td><%= challenge.category.name %></td>
+          <td><%= challenge.description %></td>
+        </tr>
+      <% end %>
+
+
+    </table>
+    <div class="pag">
+    <% if @paginate %>
+      <%= paginate @challenges %>
+    <% end %>
+    </div>
+  </div>
 </div>
 
 

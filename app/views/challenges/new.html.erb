@@ -24,12 +24,3 @@
 
 
 <!--  -->
-    <%= form_for(@post) do |p| %>
-      <%= p.label :comments %>
-      <%= p.text_field :comments, class: 'form-control' %>
-
-      <%= p.label :images %>
-      <%= p.text_field :images, class: 'form-control' %>
-
-      <%= p.submit "Create a Post", class: "btn btn-primary" %>
-    <% end %>

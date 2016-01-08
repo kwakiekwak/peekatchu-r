@@ -5,6 +5,8 @@
 
     <% provide(:title, 'All challenges') %>
 
+
+
     <h1 id="tab_header"> New Challenges </h1>
 
     <%# will_paginate %>
@@ -21,144 +23,114 @@
     </div>
 
 
+
+
+    <table class="table table-striped">
+      <tr>
+        <th style="text-align: center"><%= link_to "Images", challenges_sort_path(id: "images")%></th>
+        <th style="text-align: center"><%= link_to "Title", challenges_sort_path(id: "title")%></th>
+        <th style="text-align: center"><%= link_to "Description", challenges_sort_path(id: "category_id")%></th>
+        <th style="text-align: center"><%= link_to "Created", challenges_sort_path(id: "description")%></th>
+      </tr>
+      <tr>
+      </table>
+
+
     <div class="tab-content">
-
       <div class="tab-pane active" id="tab1">
-
         <% @challenges.each do |challenge| %>
           <% if !challenge.category.name.nil? %>
-
             <table class="table table-striped">
-              <tr>
-                <th><%= link_to "Images", challenges_sort_path(id: "images")%></th>
-                <th><%= link_to "Title", challenges_sort_path(id: "title")%></th>
-                <th><%= link_to "Description", challenges_sort_path(id: "category_id")%></th>
-                <th><%= link_to "Created", challenges_sort_path(id: "description")%></th>
-              </tr>
-
-                <tr>
-                  <td>
+                  <td class="col-md-3">
                   <%= link_to challenge_path(challenge) do %>
                      <%= image_tag challenge.images, width: 75, height: 75 %>
                   <% end %>
                   </td>
-                  <td><%= challenge.title %></td>
-                  <td><%= challenge.description %></td>
-                  <td><%= challenge.created_at %></td>
+                  <td class="col-md-3"><%= challenge.title %></td>
+                  <td class="col-md-3"><%= challenge.description %></td>
+                  <td class="col-md-3"><%= challenge.created_at %></td>
                 </tr>
-            </table>
+              </table>
           <% end %>
         <% end %>
-
       </div>
 
-        <div class="tab-pane active" id="tab2">
+        <div class="tab-pane" id="tab2">
         <% @challenges.each do |challenge| %>
           <% if challenge.category.name == "Sports" %>
-
             <table class="table table-striped">
-              <tr>
-                <th><%= link_to "Images", challenges_sort_path(id: "images")%></th>
-                <th><%= link_to "Title", challenges_sort_path(id: "title")%></th>
-                <th><%= link_to "Description", challenges_sort_path(id: "category_id")%></th>
-                <th><%= link_to "Created", challenges_sort_path(id: "description")%></th>
-              </tr>
-
                 <tr>
-                  <td>
+                  <td class="col-md-3">
                   <%= link_to challenge_path(challenge) do %>
                      <%= image_tag challenge.images, width: 75, height: 75 %>
                   <% end %>
                   </td>
-                  <td><%= challenge.title %></td>
-                  <td><%= challenge.description %></td>
-                  <td><%= challenge.created_at %></td>
+                  <td class="col-md-3"><%= challenge.title %></td>
+                  <td class="col-md-3"><%= challenge.description %></td>
+                  <td class="col-md-3"><%= challenge.created_at %></td>
                 </tr>
-            </table>
+              </table>
           <% end %>
         <% end %>
         </div>
 
-        <div class="tab-pane active" id="tab3">
+        <div class="tab-pane" id="tab3">
         <% @challenges.each do |challenge| %>
           <% if challenge.category.name == "Entertainment" %>
-
-            <table class="table table-striped">
-              <tr>
-                <th><%= link_to "Images", challenges_sort_path(id: "images")%></th>
-                <th><%= link_to "Title", challenges_sort_path(id: "title")%></th>
-                <th><%= link_to "Description", challenges_sort_path(id: "category_id")%></th>
-                <th><%= link_to "Created", challenges_sort_path(id: "description")%></th>
-              </tr>
-
+              <table class="table table-striped">
                 <tr>
-                  <td>
+                  <td class="col-md-3">
                   <%= link_to challenge_path(challenge) do %>
                      <%= image_tag challenge.images, width: 75, height: 75 %>
                   <% end %>
                   </td>
-                  <td><%= challenge.title %></td>
-                  <td><%= challenge.description %></td>
-                  <td><%= challenge.created_at %></td>
+                  <td class="col-md-3"><%= challenge.title %></td>
+                  <td class="col-md-3"><%= challenge.description %></td>
+                  <td class="col-md-3"><%= challenge.created_at %></td>
                 </tr>
-            </table>
+              </table>
           <% end %>
         <% end %>
         </div>
 
-        <div class="tab-pane active" id="tab4">
+        <div class="tab-pane" id="tab4">
         <% @challenges.each do |challenge| %>
           <% if challenge.category.name == "Food" %>
-
-            <table class="table table-striped">
-              <tr>
-                <th><%= link_to "Images", challenges_sort_path(id: "images")%></th>
-                <th><%= link_to "Title", challenges_sort_path(id: "title")%></th>
-                <th><%= link_to "Description", challenges_sort_path(id: "category_id")%></th>
-                <th><%= link_to "Created", challenges_sort_path(id: "description")%></th>
-              </tr>
-
+              <table class="table table-striped">
                 <tr>
-                  <td>
+                  <td class="col-md-3">
                   <%= link_to challenge_path(challenge) do %>
                      <%= image_tag challenge.images, width: 75, height: 75 %>
                   <% end %>
                   </td>
-                  <td><%= challenge.title %></td>
-                  <td><%= challenge.description %></td>
-                  <td><%= challenge.created_at %></td>
+                  <td class="col-md-3"><%= challenge.title %></td>
+                  <td class="col-md-3"><%= challenge.description %></td>
+                  <td class="col-md-3"><%= challenge.created_at %></td>
                 </tr>
-            </table>
+              </table>
           <% end %>
         <% end %>
         </div>
 
-        <div class="tab-pane active" id="tab5">
+        <div class="tab-pane" id="tab5">
         <% @challenges.each do |challenge| %>
           <% if challenge.category.name == "Other" %>
-
-            <table class="table table-striped">
-              <tr>
-                <th><%= link_to "Images", challenges_sort_path(id: "images")%></th>
-                <th><%= link_to "Title", challenges_sort_path(id: "title")%></th>
-                <th><%= link_to "Description", challenges_sort_path(id: "category_id")%></th>
-                <th><%= link_to "Created", challenges_sort_path(id: "description")%></th>
-              </tr>
-
+              <table class="table table-striped">
                 <tr>
-                  <td>
+                  <td class="col-md-3">
                   <%= link_to challenge_path(challenge) do %>
                      <%= image_tag challenge.images, width: 75, height: 75 %>
                   <% end %>
                   </td>
-                  <td><%= challenge.title %></td>
-                  <td><%= challenge.description %></td>
-                  <td><%= challenge.created_at %></td>
+                  <td class="col-md-3"><%= challenge.title %></td>
+                  <td class="col-md-3"><%= challenge.description %></td>
+                  <td class="col-md-3"><%= challenge.created_at %></td>
                 </tr>
-            </table>
+              </table>
           <% end %>
         <% end %>
         </div>
+      </table>
     </div>
     <br>
     <br>
@@ -192,7 +164,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Peekatchu-r-Challenge</h4>
+          <h4 class="modal-title" id="myModalLabel" style="text-align: center">
+          Peekatchu-r-Challenge</h4>
         </div>
         <div class="modal-body">
            <h1>Log in</h1>
@@ -286,6 +259,7 @@
 <br>
 <br>
 
-
-<img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" style="margin-left: 45%" />
+  <%= link_to root_path do %>
+    <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" style="margin-left: 46%" />
+  <% end %>
 

@@ -141,6 +141,10 @@ aside {
   // opacity: .8
 }
 
+.table {
+  text-align: center;
+}
+
 #header {
   background-color: #93B1C6;
   background-repeat: no-repeat;
@@ -156,6 +160,7 @@ body {
 
 #hometab {
   color: gray;
+  margin-left: 21%;
 }
 
 .challenges {
@@ -178,28 +183,46 @@ body {
 }
 
 #cat1 {
-  color: black;
+  color: blue;
   font-weight: bold;
   font-size: 25px;
 }
 
 #cat2 {
-  color: black;
+  color: red;
   font-weight: bold;
   font-size: 25px;
 }
 
 #cat3 {
-  color: black;
+  color: orange;
   font-weight: bold;
   font-size: 25px;
 }
 
 #cat4 {
-  color: black;
+  color: yellow;
   font-weight: bold;
   font-size: 25px;
 }
+
+.align {
+  text-align: center;
+}
+
+/* search bar */
+.search-index {
+  width: 200px;
+  margin-left: 40%;
+}
+
+/* paginate */
+
+span {
+  font: 12px;
+  color: black;
+}
+
 
 
 /* forms */

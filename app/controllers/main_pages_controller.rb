@@ -1,6 +1,10 @@
 class MainPagesController < ApplicationController
   def home
     @challenges = Challenge.all
+    # if params[:newest]
+    #   @challenges = Challenge.all(-6..-1)
+    # end
+
   end
 
   # def new

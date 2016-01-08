@@ -1,47 +1,49 @@
 
-
-<div class="container">
-  <br>
-
-  <%= form_tag(users_path, method:"get") do %>
-    <%= text_field_tag :query %>
-    <%= submit_tag "Search", "class" => "btn btn-primary"%>
-  <% end %>
-
-
-    <%# will_paginate %>
-  <% if @paginate %>
-    <%= paginate @users %>
-  <% end %>
-
-
-  <h3>User Data</h3>
-  <table class="table table-striped">
-    <tr>
-      <th><%= link_to "User", users_sort_path(id: "name")%></th>
-      <th><%= link_to "Name", users_sort_path(id: "name")%></th>
-      <th><%= link_to "Email", users_sort_path(id: "email")%></th>
-      <!-- eventually have the raitings -->
-      <th><%= link_to "Delete" %></th>
-    </tr>
-    <% @users.each do |user| %>
-      <tr>
-        <td>
-        <%= link_to user_path(user) do %>
-           <%= image_tag user.images, width: 75, height: 75 %>
-        <% end %>
-
-        </td>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <% if current_user == user %>
-          <td><%= link_to "Destroy", destroy_user_path(user), method: :delete,
-                                    data: { confirm: "You sure?" } %></td>
-        <% else %>
-            <td></td>
-        <% end %>
-      </tr>
+<div class="jumbotron" style="background-color: #93B1C6">
+  <div class="container">
+    <br>
+    <div class="search-index">
+    <%= form_tag(users_path, method:"get") do %>
+      <%= text_field_tag :query %>
+      <%= submit_tag "Search Users", "class" => "btn btn-primary"%>
     <% end %>
-  </table>
+    </div>
+
+
+      <%# will_paginate %>
+    <% if @paginate %>
+      <%= paginate @users %>
+    <% end %>
+
+
+    <h3>User Data</h3>
+    <table class="table table-striped">
+      <tr>
+        <th class="align"><%= link_to "User", users_sort_path(id: "name")%></th>
+        <th class="align"><%= link_to "Name", users_sort_path(id: "name")%></th>
+        <th class="align"><%= link_to "Email", users_sort_path(id: "email")%></th>
+        <!-- eventually have the raitings -->
+        <th class="align"><%= link_to "Delete" %></th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+          <%= link_to user_path(user) do %>
+             <%= image_tag user.images, width: 75, height: 75 %>
+          <% end %>
+
+          </td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <% if current_user == user %>
+            <td><%= link_to "Destroy", destroy_user_path(user), method: :delete,
+                                      data: { confirm: "You sure?" } %></td>
+          <% else %>
+              <td></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>
 

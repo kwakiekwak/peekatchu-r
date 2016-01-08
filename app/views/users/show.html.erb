@@ -1,22 +1,23 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
+    <br>
+    <div class="jumbotron">
     <!-- the div class below doesn't matter -->
-        <% if @user.images.nil? %>
-          <div class=".col-md-4"><img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" /></div>
-          <%= @user.name %>
-        <% else %>
-          <div id="proImage" class=".col-md-4"><%= image_tag @user.images, id:"profile_pic" %></div><br>
-        <% end %>
-      </h1>
-      <br>
-      <div class=".col-md-4"><%= @user.name %></div>
-      <div class=".col-md-4"><%= @user.email %></div>
+      <div id="proImage" class="col-md-4"><%= image_tag @user.images, id:"profile_pic" %></div>
 
+      <div class="container">
+        <div class="user-info">
+          <h3>Name:</h3><div><%= @user.name %></div>
+          <br>
+          <h3>Email:</h3><div><%= @user.email %></div>
+          <br>
+          <h3>Destroy?:</h3><button id="destroy-user" class="btn btn-sm btn-danger"><%= link_to "delete", @user, method: :delete,
+                                        data: { confirm: "You sure?" } %></button>
+        </div>
+      </div>
+    </div>
 
-      <div><%= link_to "delete", @user, method: :delete,
-                                    data: { confirm: "You sure?" } %></div>
 
 
     </section>

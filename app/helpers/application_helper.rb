@@ -10,3 +10,5 @@ module ApplicationHelper
     end
   end
 end
+
+   # <%= debug(params) if Rails.env.development? %>

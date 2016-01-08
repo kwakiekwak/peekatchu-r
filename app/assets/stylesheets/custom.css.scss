@@ -183,25 +183,25 @@ body {
 }
 
 #cat1 {
-  color: blue;
+  color: black;
   font-weight: bold;
   font-size: 25px;
 }
 
 #cat2 {
-  color: red;
+  color: black;
   font-weight: bold;
   font-size: 25px;
 }
 
 #cat3 {
-  color: orange;
+  color: black;
   font-weight: bold;
   font-size: 25px;
 }
 
 #cat4 {
-  color: yellow;
+  color: black;
   font-weight: bold;
   font-size: 25px;
 }
@@ -295,13 +295,113 @@ input {
 /* profile pic */
 
 #proImage {
-  height: 75px;
-  width: 75px;
+  float:left;
+  height: 250px;
+  width: 250px;
 }
 
 #profile_pic {
   width: 100%;
   height: 100%;
+}
+
+.user-info {
+  float: left;
+  margin-top: -13px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#edit-user {
+  background-color: #93B1C6;
+  padding: 65px;
+  border-radius: 3%;
+}
+
+.user_info {
+  width: 600px;
+  border-radius: 10%;
+  background-color: #93B1C6;
+  margin-top: -30px;
+}
+
+.jumbotron {
+  background-color: #93B1C6;
+  // border-radius: 3%;
+}
+
+
+/* challenge edit page */
+
+#jumbo {
+  border-radius: 3%;
+}
+
+#inner-jumbo {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 5%;
+}
+
+#challenge-edit {
+  margin-left: 40px;
+  border-radius: 1%;
+  // float: left;
+  a {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  button {
+    margin-top: 15px;
+    float: left;
+    margin-left: -45px;
+  }
+}
+
+#challenge1 {
+  margin-bottom: 10px;
+  // margin-left: 64%;
+  a {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+  }
+  button {
+    margin-top: 140px;
+  }
+}
+
+.text-area {
+  width: 450px;
+  float: left;
+  margin-left: 26%;
+}
+
+#challenge-btn {
+  margin-top: 75px;
+  height: 40px;
+  margin-left: -29%;
+}
+
+/* challenge delete */
+
+#post-delete {
+  // background-color: red;
+  a {
+  font-size: 12px;
+  color: black;
+  font-weight: bold;
+  }
+}
+
+#destroy-user {
+  margin-top: -1%;
+  a {
+    font-size: 12px;
+    color: black;
+    font-weight: bold;
+  }
 }
 
 /* challenge pic */

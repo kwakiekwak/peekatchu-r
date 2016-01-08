@@ -1,50 +1,75 @@
+<div id="jumbo" class="jumbotron">
+  <div class="container">
 
-<%= image_tag @challenge.images, height: 150, width: 150 %>
-<br>
-<br>
-<br>
-<%= @challenge.category.name %><br>
+    <div id="inner-jumbo" class="jumbtron">
+      <div class="container">
+        <%= image_tag @challenge.images, height: 150, width: 150 %>
+        <br>
+        <br>
+        <br>
+        <h4>Category: </h4>
+          <%= @challenge.category.name %><br>
+        <h4>Title: </h4>
+        <%= @challenge.title %> <br>
+        <!-- make the description into a box -->
+        <h4>Description: </h4>
+          <%= @challenge.description %><br><br>
+        <!-- editing challenge should go here or at _challenge -->
+        <div id="challenge-edit">
+          <button class="btn"><%= link_to "Edit Challenge", edit_challenge_path %></button>
+        </div>
+        <div id="challenge1" style="float: right">
+          <button class="btn btn-danger"><%= link_to "Delete", @challenge, method: :delete,
+                                              data: { confirm: "You sure?" } %></button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
-<%= @challenge.title %> <br>
-<!-- make the description into a box -->
-<%= @challenge.description %><br><br>
-<!-- editing challenge should go here or at _challenge -->
-<button><%= link_to "Edit Challenge", edit_challenge_path %></button><br>
-<button><%= link_to "Delete", @challenge, method: :delete,
-                                    data: { confirm: "You sure?" } %></button>
+        <div id="star" class="small-2 large-4 columns" >
+          <% if current_user %>
+            <br>
+            <strong>Challenge Rating:</strong> <br> <%= rating_for @challenge, "challenge_rating", disable_after_rate: false, imdb_avg: true, enable_show: true %><br>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-<br>
-<br>
+    <div class="row">
+    <br>
+    <br>
+      <div class="container">
+        <div class="post">
+          <%= form_for @post do |f| %>
+          <div class="text-area">
+          <%= f.label :comments %>
+          <%= f.text_area :comments, :placeholder => "comments" %>
+          </div>
+        </div>
+        <div>
+          <%= f.hidden_field :challenge_id, :value => @challenge.id %>
+        </div>
+        <div>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+        </div>
 
-<div class="row">
+          <button id="challenge-btn" class="btn"><%= f.submit %></button>
 
-  <br>
-  <div id="star" class="small-2 large-4 columns" >
-    <% if current_user %>
-      <br>
-      <strong>Challenge Rating:</strong> <br> <%= rating_for @challenge, "challenge_rating", disable_after_rate: false, imdb_avg: true, enable_show: true %><br>
-    <% end %>
+          <% end %>
+      </div>
+        <br>
+        <br>
+        <div class="comment1">
+        <%= render :partial => 'post', :collection => @challenge.posts %>
+        <br>
+        <br>
+        </div>
+
+    </div>
+
   </div>
-</div>
-<br>
-<br>
-<br>
-
-<%= form_for @post do |f| %>
-<div>
-<%= f.label :comments %>
-<%= f.text_area :comments %>
-</div>
-<div>
-<%= f.hidden_field :challenge_id, :value => @challenge.id %>
-</div>
-<div>
-<%= f.hidden_field :user_id, :value => current_user.id %>
-</div>
-<%= f.submit %>
-<% end %>
-
-<div class="comment1">
-<%= render :partial => 'post', :collection => @challenge.posts %>
 </div>
 

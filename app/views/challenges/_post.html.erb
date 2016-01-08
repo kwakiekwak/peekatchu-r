@@ -1,6 +1,10 @@
 <div class="comment">
   <i><%=h post.user.name %> says:</i><br/>
   <%= simple_format h(post.comments) %>
-  <%= link_to 'Delete Comment', [post, @challenge],
-  :method => :delete if current_user %>
+  <button id="post-delete" class="btn btn-sm btn-danger"><%= link_to 'Delete Comment', [post, @challenge],
+  :method => :delete if current_user %></button>
+  <br>
+  <br>
+  <br>
 </div>
+

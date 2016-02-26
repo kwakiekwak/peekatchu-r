@@ -1,12 +1,11 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-    <br>
-    <div class="jumbotron">
-    <!-- the div class below doesn't matter -->
-      <div id="proImage" class="col-md-4"><%= image_tag @user.images, id:"profile_pic" %></div>
-
-      <div class="container">
+<div class="jumbotron" style="background-color: floralwhite">
+  <div class="container">
+    <div class="row">
+      <!-- the div class below doesn't matter -->
+      <div id="proImage" class="col-md-4">
+      <%= image_tag @user.images, id:"profile_pic" %>
+      </div>
+      <div class="col-md-4 mid">
         <div class="user-info">
           <h3>Name:</h3><div><%= @user.name %></div>
           <br>
@@ -16,11 +15,14 @@
                                         data: { confirm: "You sure?" } %></button>
         </div>
       </div>
+      <div class="col-md-4">
+        <h3 syle="text-align: center"> Challenges Accepted </h3>
+      </div>
     </div>
-
-
-
-    </section>
-  </aside>
+  </div>
 </div>
 
+
+<!-- modifying picture on desktop -->
+<!-- post it in GA profiles -->
+<!-- finish profiles -->

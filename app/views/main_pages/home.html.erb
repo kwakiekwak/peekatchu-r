@@ -1,4 +1,4 @@
-<!-- <div class="center jumbotron" id="main"> -->
+<div class="center jumbotron" id="main" style="background-color: floralwhite">
 
   <!-- If logged in New Challenge, if not register -->
   <% if logged_in? %>
@@ -135,9 +135,9 @@
     <br>
     <br>
     <br>
-
+</div>
   <!-- add all the challenges and make it look more like the site -->
-    <div style="margin-left: 42%;"><%= link_to "Add a Challenge!", new_challenge_path, class: "btn btn-lg btn-default"%></div>
+    <div style="margin-left: 41%;"><%= link_to "Add a Challenge!", new_challenge_path, class: "btn btn-lg btn-default"%></div>
 
   <% else %>
 
@@ -149,15 +149,15 @@
       <br>
       <br>
       <br>
-        <h1 class="title">Peekatchu-r Challenge Accepted</h1>
+        <h1 class="title" style="color:white">Peekatchu-r Challenge Accepted</h1>
           <div class="twobuttons">
             <div class="button1">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-left: 45%; padding-right: 22px">
+              <button type="button" id="new" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left: 45%; padding-right: 22px; text-align: center">
                 Log In
               </button>
             </div>
             <div class="button2">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2" style="margin-left: 45%">
+              <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2" style="margin-left: 45%">
                 Register
               </button>
             </div>

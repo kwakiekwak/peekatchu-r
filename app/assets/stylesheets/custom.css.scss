@@ -75,7 +75,7 @@ p {
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-   color: black;
+   color: orange;
    text-decoration: none;
   }
 }
@@ -134,10 +134,44 @@ aside {
   }
 }
 
+.twobuttons {
+  // display: inline-block;
+  margin: 8% 6%;
+}
+.button1 {
+  float: left;
+  margin-left: 35%;
+}
+.button2 {
+  float: left;
+  margin-left: 2%;
+}
+.title {
+  color: white;
+  position: relative;
+}
+
+// background
+.background-pic {
+  height: 35em;
+}
+.pic {
+  background: url('http://transformedhearts.com/wp-content/uploads/2015/10/Obstacles_1.jpg');
+  height: 100%;
+  background-size: cover;
+  // position: absolute;
+  z-index: -1;
+}
+.btn-default {
+  background-color: black;
+  color: white;
+}
+
+
 /* main page */
 
 #main {
-  background-color: #93B1C6;
+  background-color: white;
   // opacity: .8
 }
 
@@ -146,7 +180,7 @@ aside {
 }
 
 #header {
-  background-color: #93B1C6;
+  background-color: black;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }

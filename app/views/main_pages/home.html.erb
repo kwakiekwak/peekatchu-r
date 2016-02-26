@@ -1,4 +1,4 @@
-<div class="center jumbotron" id="main">
+<!-- <div class="center jumbotron" id="main"> -->
 
   <!-- If logged in New Challenge, if not register -->
   <% if logged_in? %>
@@ -136,27 +136,42 @@
     <br>
     <br>
 
-
-
-
-
-
-
   <!-- add all the challenges and make it look more like the site -->
-    <div style="margin-left: 420px"><%= link_to "Add a Challenge!", new_challenge_path, class: "btn btn-lg btn-primary" %></div>
+    <div style="margin-left: 42%;"><%= link_to "Add a Challenge!", new_challenge_path, class: "btn btn-lg btn-default"%></div>
 
   <% else %>
 
+  <div class="container-pic">
+    <div class="background-pic">
+      <div class="pic">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+        <h1 class="title">Peekatchu-r Challenge Accepted</h1>
+          <div class="twobuttons">
+            <div class="button1">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-left: 45%; padding-right: 22px">
+                Log In
+              </button>
+            </div>
+            <div class="button2">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2" style="margin-left: 45%">
+                Register
+              </button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 
-  <h1>Let Me Peekatchu-r Challenge</h1>
 
   <br>
   <br>
   <br>
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-left: 45%; padding-right: 22px">
-    Log In
-  </button>
+
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -203,10 +218,6 @@
   <br>
   <br>
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2" style="margin-left: 45%">
-    Register
-  </button>
-
   <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -250,16 +261,16 @@
     </div>
   </div>
 
-  <br>
-  <br>
+
+
   <% end %>
-</div>
+<!-- </div> -->
 
 
-<br>
-<br>
+
+
 
   <%= link_to root_path do %>
-    <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" style="margin-left: 46%" />
+    <img id="pika" alt="Peekatchu-r logo" src="/assets/pikachu.jpg" style="margin-left: 46%; margin-top: 3%" />
   <% end %>
 
